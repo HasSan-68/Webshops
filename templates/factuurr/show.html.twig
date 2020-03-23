@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Factuurr{% endblock %}
+
+{% block body %}
+    <h1>Factuurr</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ factuurr.id }}</td>
+            </tr>
+            <tr>
+                <th>Factuurdatum</th>
+                <td>{{ factuurr.factuurdatum }}</td>
+            </tr>
+            <tr>
+                <th>Vervaldatum</th>
+                <td>{{ factuurr.vervaldatum }}</td>
+            </tr>
+            <tr>
+                <th>Inzakeopdracht</th>
+                <td>{{ factuurr.inzakeopdracht }}</td>
+            </tr>
+            <tr>
+                <th>Korting</th>
+                <td>{{ factuurr.korting }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('factuurr_index') }}">back to list</a>
+
+    <a href="{{ path('factuurr_edit', {'id': factuurr.id}) }}">edit</a>
+
+    {{ include('factuurr/_delete_form.html.twig') }}
+{% endblock %}

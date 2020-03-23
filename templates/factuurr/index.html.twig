@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Factuurr index{% endblock %}
+
+{% block body %}
+    <h1>Factuurr index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Factuurdatum</th>
+                <th>Vervaldatum</th>
+                <th>Inzakeopdracht</th>
+                <th>Korting</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factuurr in factuurrs %}
+            <tr>
+                <td>{{ factuurr.id }}</td>
+                <td>{{ factuurr.factuurdatum }}</td>
+                <td>{{ factuurr.vervaldatum }}</td>
+                <td>{{ factuurr.inzakeopdracht }}</td>
+                <td>{{ factuurr.korting }}</td>
+                <td>
+                    <a href="{{ path('factuurr_show', {'id': factuurr.id}) }}">show</a>
+                    <a href="{{ path('factuurr_edit', {'id': factuurr.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('factuurr_new') }}">Create new</a>
+{% endblock %}

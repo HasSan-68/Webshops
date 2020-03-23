@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Factuurr{% endblock %}
+
+{% block body %}
+    <h1>Create new Factuurr</h1>
+
+    {{ include('factuurr/_form.html.twig') }}
+
+    <a href="{{ path('factuurr_index') }}">back to list</a>
+{% endblock %}
