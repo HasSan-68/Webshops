@@ -39,15 +39,15 @@
 
                                     {% for row in product %}
                                         {% if row.id == key %}
-                                            <td>{{ row.omschrijving }}</td>
-                                            <td>€{{ row.prijs | number_format(2)  }}</td>
-                                            <td>€{{ (row.prijs * item) | number_format(2) }}</td>
-                                            {% set total = total + (row.prijs * item)  %}
+                                            <td>{{ row.getProductomschrijving() }}</td>
+                                            <td>€{{ row.getProductprijs() | number_format(2)  }}</td>
+                                            <td>€{{ (row.getProductprijs() * item) | number_format(2) }}</td>
+                                            {% set total = total + (row.getProductprijs * item)  %}
                                         {% endif %}
                                     {% endfor %}
 
                                     <td><a href="{{ path('cart_remove', {'id': key}) }}"><button class="btn btn-danger">Remove</button></a></td>
-                                </tr>
+                               </tr>
                             {% endfor %}
                             </tbody>
                         </table>
@@ -58,9 +58,9 @@
             {% endif %}
         </ul>
 
-      {#  <H4 class="right">Total in Cart = €{{ total | number_format(2) }}</H4>
-        <a href="{{ path('homepage') }}"><button type="button" class="btn btn-info col-lg-2 right">Go on shopping!</button></a>
-        <a href="{{ path('checkout') }}"><button type="button" class="btn btn-success col-lg-2 pull-right">Checkout!</button></a>
-#}
+        <H4 class="right">Total in Cart = €{{ total | number_format(2) }}</H4>
+        <a href="checkout"><button type="button" class="btn btn-success col-lg-2 pull-right">Checkout!</button></a>
+        <a href="/product/"><button type="button" class="btn btn-info col-lg-2 right">Go back to shopping!</button></a>
+
 
     {% endblock %}
